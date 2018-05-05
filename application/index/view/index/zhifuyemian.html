@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>中国零食网-系统提示</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta http-equiv="refresh" content="3;URL=http://www.lingshi.com/" />
+
+
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="Css/common.css" rel="stylesheet" type="text/css" />
+<link href="Css/message.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Scripts/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="Scripts/googlejs.js"></script>
+
+<script type="text/javascript">var domain = "http://www.lingshi.com/"; var Cart_Path = "http://pay.lingshi.com/"; var Customer_Path = "http://member.lingshi.com/";</script>
+<script type="text/javascript" src="Scripts/common.js"></script>
+<style type="text/css">
+p a{color:#006acd; text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<script type="text/javascript" src="Scripts/kf.js"></script>
+<script type="text/javascript" src="Scripts/roll.js"></script>
+<script src='Scripts/ttscrollbar.js'></script>
+<script type="text/javascript" src="Scripts/header_footer.js"></script>
+<script type="text/javascript" src="Scripts/jquery.autocomplete-min.js"></script>
+<script type="text/javascript">
+document.domain = 'lingshi.com';
+var process_request = "正在处理您的请求...";
+$(function() {
+	//搜索自动完成，ajax
+	var onAutocompleteSelect =function(value, data) {
+		//根据返回结果自定义一些操作
+	};
+	var options = {
+		serviceUrl: 'http://www.lingshi.com/static_state.php',//获取数据的后台页面
+		width: 415,//提示框的宽度
+		delimiter: /(,|;)\s*/,//分隔符
+		onSelect: onAutocompleteSelect,//选中之后的回调函数
+		deferRequestBy: 0, //单位微秒
+		params: {country: 'Yes' ,act:'search'},//参数
+		noCache: false, //是否启用缓存 默认是开启缓存的
+		autoSubmit:true
+	};
+
+	a1 = $('#ks').autocomplete(options);
+
+	//商店公告
+	$.getJSON('http://www.lingshi.com/static_state.php?callback=?', {act: 'top_art'}, function(json) {
+		var html = '';
+		$.each(json, function(index, val) {
+			html += '<li><a href="'+val.link+'" target="_blank" title="'+val.title+'">'+val.title+'</a></li>';
+		});
+		var fdom = $('#fontlist');
+		fdom.html(html);
+		fdom.rollGallery({
+			direction:"top",
+			speed:2000,
+			showNum:2
+		});
+	});
+});
+
+</script>
+<link href="Css/header_footer.css" rel="stylesheet" type="text/css" />
+<div id="head">
+	<div id="top" class="fixed">
+	<div id="topContent">
+		<ul id="topLeft">
+			<li>
+				<script type="text/javascript" src="Scripts/static_state.js"></script>
+			</li>
+		</ul>
+		<ul id="topRight">
+			<li id="weibo_text"><a href="javascript:void(0);" class="weibo" rel="nofollow">官方微博<!--[if gte IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<div class="weibo_wrap">
+					<a href="http://weibo.com/lingshi001" target="_blank" class="weibo_icon1" rel="nofollow" title="中国零食网 - 新浪微博"></a><a href="http://weibo.com/lingshi001" target="_blank" rel="nofollow">新浪微博</a>
+					<a href="http://e.t.qq.com/chinalingshi001" target="_blank" class="weibo_icon2" rel="nofollow" title="中国零食网 - 腾讯微博"></a><a href="http://e.t.qq.com/chinalingshi001" target="_blank" rel="nofollow">腾讯微博</a>
+				</div>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li>|</li>
+			<li><a href="http://art.lingshi.com/articles/articles/bangzhu" target="_blank" rel="nofollow">帮助中心</a></li>
+			<li>|</li>
+			<li><a href="http://www.lingshi.com/duihuan.htm" target="_blank" rel="nofollow">积分兑换</a></li>
+			<li>|</li>
+			<li><a href="http://www.lingshi.com/dingdan.htm" target="_blank" rel="nofollow">订单速查</a></li>
+			<li>|</li>
+			<li><a href="http://member.lingshi.com/?act=order_list" class="loginajax" target="_blank" rel="nofollow">我的订单</a></li>
+			<li>|</li>
+			<li><a href="http://www.lingshi.com/app.php" target="_blank" rel="nofollow">手机版客户端</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$('.loginajax').click(function(event) {
+	if(userid == ''){
+		loginRegShow('login','http://member.lingshi.com/?act=order_list');
+		return false;
+	}
+});
+</script>
+	<div class="clear"></div>
+
+	
+	
+
+	<div id="header">
+		<a id="logo" href="http://www.lingshi.com/" title="中国零食网"></a>
+
+		<div id="search">
+			<form name="formsearch" id="formsearch" action="http://www.lingshi.com/list/" method="get">
+				<div id="searchBg"><input type="text" id="ks" name="k" value="" placeholder="搜索"/><input type="submit" id="btnSearch" value="找零食"/></div>
+				<div id="hotSearch">
+										<a href="http://www.lingshi.com/list/?ks=海苔" target="_blank" title="海苔">海苔</a>
+										<a href="http://www.lingshi.com/list/?ks=果冻" target="_blank" title="果冻">果冻</a>
+										<a href="http://www.lingshi.com/list/?ks=饼干" target="_blank" title="饼干">饼干</a>
+										<a href="http://www.lingshi.com/list/?ks=锅巴" target="_blank" title="锅巴">锅巴</a>
+										<a href="http://www.lingshi.com/list/?ks=威化饼" target="_blank" title="威化饼">威化饼</a>
+									</div>
+			</form>
+		</div>
+
+		<div class="qrc_news">
+			<a class="qrc" href="http://join.lingshi.com/" target="_blank"></a>
+
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<div id="navbar_wrap">
+		<div id="navbar">
+						<div id="sidebar" class="No_index">
+				<h3><a href="http://www.lingshi.com/ditu.htm" class="all_class">全部商品分类</a></h3>
+								<link href="Css/menu.css" rel="stylesheet" type="text/css" />
+<div class="menu" style="display:none;">
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/" class="new_sort1"  title="所有宝贝">所有宝贝</a></h3>
+				<div class="i-list l1">
+											<p class="small_ab"><a href="http://www.lingshi.com/list/o1.htm" >
+				<img src="Picture/icon_01.png" width="204" height="73" alt="按销量" />
+				</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/list/o2.htm" >
+				<img src="Picture/icon_02.png" width="204" height="73" alt="按新品" />
+				</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/list/o3.htm" >
+				<img src="Picture/icon_03.png" width="204" height="73" alt="按价格" />
+				</a></p>
+												</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f76_o1.htm" class="new_sort2"  title="坚果炒货">坚果炒货</a></h3>
+				<div class="i-list l2">
+						<ul class="fixed">
+								<li><a title="瓜子"  href="http://www.lingshi.com/list/f87_o1.htm">瓜子</a></li>
+								<li><a title="花生"  href="http://www.lingshi.com/list/f83_o1.htm">花生</a></li>
+								<li><a title="栗子"  href="http://www.lingshi.com/list/f78_o1.htm">栗子</a></li>
+								<li><a title="豆类"  href="http://www.lingshi.com/list/f257_o1.htm">豆类</a></li>
+								<li><a title="坚果"  href="http://www.lingshi.com/list/f282_o1.htm">坚果</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f49_o1.htm" class="new_sort3"  title="饼干糕点">饼干糕点</a></h3>
+				<div class="i-list l3">
+						<ul class="fixed">
+								<li><a title="饼干"  href="http://www.lingshi.com/list/f53_o1.htm">饼干</a></li>
+								<li><a title="威化饼"  href="http://www.lingshi.com/list/f230_o1.htm">威化饼</a></li>
+								<li><a title="曲奇"  href="http://www.lingshi.com/list/f51_o1.htm">曲奇</a></li>
+								<li><a title="苏打/夹心饼干"  href="http://www.lingshi.com/list/f205_o1.htm">苏打/夹心饼干</a></li>
+								<li><a title="涂层饼干"  href="http://www.lingshi.com/list/f231_o1.htm">涂层饼干</a></li>
+								<li><a title="中式糕点"  href="http://www.lingshi.com/list/f232_o1.htm">中式糕点</a></li>
+								<li><a title="蛋卷/酥/松塔/糕点"  href="http://www.lingshi.com/list/f192_o1.htm">蛋卷/酥/松塔/糕点</a></li>
+								<li><a title="蛋糕"  href="http://www.lingshi.com/list/f283_o1.htm">蛋糕</a></li>
+								<li><a title="面包"  href="http://www.lingshi.com/list/f299_o1.htm">面包</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f204_o1.htm" class="new_sort4"  title="糖果巧克力">糖果巧克力</a></h3>
+				<div class="i-list l4">
+						<ul class="fixed">
+								<li><a title="软糖"  href="http://www.lingshi.com/list/f206_o1.htm">软糖</a></li>
+								<li><a title="硬糖"  href="http://www.lingshi.com/list/f58_o1.htm">硬糖</a></li>
+								<li><a title="棒棒糖"  href="http://www.lingshi.com/list/f233_o1.htm">棒棒糖</a></li>
+								<li><a title="含片"  href="http://www.lingshi.com/list/f234_o1.htm">含片</a></li>
+								<li><a title="果冻布丁"  href="http://www.lingshi.com/list/f54_o1.htm">果冻布丁</a></li>
+								<li><a title="龟苓膏"  href="http://www.lingshi.com/list/f235_o1.htm">龟苓膏</a></li>
+								<li><a title="巧克力"  href="http://www.lingshi.com/list/f56_o1.htm">巧克力</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f64_o1.htm" class="new_sort5"  title="蜜饯果干">蜜饯果干</a></h3>
+				<div class="i-list l5">
+						<ul class="fixed">
+								<li><a title="梅类"  href="http://www.lingshi.com/list/f68_o1.htm">梅类</a></li>
+								<li><a title="枣类"  href="http://www.lingshi.com/list/f241_o1.htm">枣类</a></li>
+								<li><a title="葡萄干"  href="http://www.lingshi.com/list/f182_o1.htm">葡萄干</a></li>
+								<li><a title="山楂类"  href="http://www.lingshi.com/list/f255_o1.htm">山楂类</a></li>
+								<li><a title="水果干"  href="http://www.lingshi.com/list/f183_o1.htm">水果干</a></li>
+								<li><a title="芒果类"  href="http://www.lingshi.com/list/f240_o1.htm">芒果类</a></li>
+								<li><a title="果干/蔬菜干/枣"  href="http://www.lingshi.com/list/f284_o1.htm">果干/蔬菜干/枣</a></li>
+							</ul>
+														<p class="small_ab"><a href="http://www.lingshi.com/lingshi.php?id=10640" >
+										<img src="Picture/1486956455164862806.jpg" width="204" height="73" alt="四季屋香烤椰片80g" />
+									</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/product/lingshi-1423.htm" >
+										<img src="Picture/1486956455373077703.jpg" width="204" height="73" alt="榴的华金枕头榴莲干100g" />
+									</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/lingshi.php?id=11896" >
+										<img src="Picture/1486956455913617967.jpg" width="204" height="73" alt="百年树香菇脆*250g" />
+									</a></p>
+									</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f16_o1.htm" class="new_sort6"  title="肉类制品">肉类制品</a></h3>
+				<div class="i-list l6">
+						<ul class="fixed">
+								<li><a title="鸡肉制品"  href="http://www.lingshi.com/list/f191_o1.htm">鸡肉制品</a></li>
+								<li><a title="鸭肉制品"  href="http://www.lingshi.com/list/f187_o1.htm">鸭肉制品</a></li>
+								<li><a title="牛肉制品"  href="http://www.lingshi.com/list/f23_o1.htm">牛肉制品</a></li>
+								<li><a title="猪肉制品"  href="http://www.lingshi.com/list/f38_o1.htm">猪肉制品</a></li>
+							</ul>
+														<p class="small_ab"><a href="http://www.lingshi.com/product/lingshi-2165.htm" >
+										<img src="Picture/1435731358470138260.jpg" width="204" height="73" alt="牛浪汉泡椒牛肉60g" />
+									</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/product/lingshi-5316.htm" >
+										<img src="Picture/1435731358680572886.jpg" width="204" height="73" alt="母亲牛肉棒原味22g" />
+									</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/product/lingshi-546.htm" >
+										<img src="Picture/1435731358747955276.jpg" width="204" height="73" alt="有友山椒泡凤爪120g" />
+									</a></p>
+									</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f39_o1.htm" class="new_sort7"  title="海味零食">海味零食</a></h3>
+				<div class="i-list l7">
+						<ul class="fixed">
+								<li><a title="鱼类"  href="http://www.lingshi.com/list/f47_o1.htm">鱼类</a></li>
+								<li><a title="海苔类"  href="http://www.lingshi.com/list/f46_o1.htm">海苔类</a></li>
+								<li><a title="鱿鱼类"  href="http://www.lingshi.com/list/f42_o1.htm">鱿鱼类</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f59_o1.htm" class="new_sort8"  title="膨化零食">膨化零食</a></h3>
+				<div class="i-list l8">
+						<ul class="fixed">
+								<li><a title="锅巴"  href="http://www.lingshi.com/list/f259_o1.htm">锅巴</a></li>
+								<li><a title="米饼/米卷类"  href="http://www.lingshi.com/list/f212_o1.htm">米饼/米卷类</a></li>
+								<li><a title="虾片类"  href="http://www.lingshi.com/list/f237_o1.htm">虾片类</a></li>
+								<li><a title="脆脆条/尖角酥"  href="http://www.lingshi.com/list/f211_o1.htm">脆脆条/尖角酥</a></li>
+								<li><a title="薯片类"  href="http://www.lingshi.com/list/f210_o1.htm">薯片类</a></li>
+								<li><a title="爆米花/其他"  href="http://www.lingshi.com/list/f236_o1.htm">爆米花/其他</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f93_o1.htm" class="new_sort9"  title="饮料/罐头/牛奶">饮料/罐头/牛奶</a></h3>
+				<div class="i-list l9">
+						<ul class="fixed">
+								<li><a title="咖啡"  href="http://www.lingshi.com/list/f95_o1.htm">咖啡</a></li>
+								<li><a title="奶茶冲饮"  href="http://www.lingshi.com/list/f94_o1.htm">奶茶冲饮</a></li>
+								<li><a title="冲饮"  href="http://www.lingshi.com/list/f250_o1.htm">冲饮</a></li>
+								<li><a title="花果茶"  href="http://www.lingshi.com/list/f178_o1.htm">花果茶</a></li>
+								<li><a title="牛奶"  href="http://www.lingshi.com/list/f225_o1.htm">牛奶</a></li>
+								<li><a title="罐头"  href="http://www.lingshi.com/list/f215_o1.htm">罐头</a></li>
+								<li><a title="饮料"  href="http://www.lingshi.com/list/f214_o1.htm">饮料</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f89_o1.htm" class="new_sort10"  title="豆菌笋类">豆菌笋类</a></h3>
+				<div class="i-list l10">
+						<ul class="fixed">
+								<li><a title="豆干/豆制品"  href="http://www.lingshi.com/list/f207_o1.htm">豆干/豆制品</a></li>
+								<li><a title="竹笋/菌/菇"  href="http://www.lingshi.com/list/f208_o1.htm">竹笋/菌/菇</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/list/f219_o1.htm" class="new_sort11"  title="速食/方便面">速食/方便面</a></h3>
+				<div class="i-list l11">
+						<ul class="fixed">
+								<li><a title="肠/肠仔"  href="http://www.lingshi.com/list/f280_o1.htm">肠/肠仔</a></li>
+								<li><a title="蛋类制品"  href="http://www.lingshi.com/list/f226_o1.htm">蛋类制品</a></li>
+								<li><a title="方便面"  href="http://www.lingshi.com/list/f221_o1.htm">方便面</a></li>
+								<li><a title="速食品"  href="http://www.lingshi.com/list/f220_o1.htm">速食品</a></li>
+							</ul>
+														<p class="small_ab"><a href="http://www.lingshi.com/product/lingshi-11712.htm" >
+										<img src="Picture/1486954659693767071.jpg" width="204" height="73" alt="宝噜噜奶酪鳕鱼肠90g" />
+									</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/lingshi.php?id=5383" >
+										<img src="Picture/1486954659325235788.jpg" width="204" height="73" alt="养养牌泰式青咖喱汤面杯面70g" />
+									</a></p>
+								<p class="small_ab"><a href="http://www.lingshi.com/lingshi.php?id=2030" >
+										<img src="Picture/1486954659829818241.jpg" width="204" height="73" alt="维力张君雅碳烤鸡汁点心面100g" />
+									</a></p>
+									</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="javascript:void(0);" class="new_sort12"  title="特产零食">特产零食</a></h3>
+				<div class="i-list l12">
+						<ul class="fixed">
+								<li><a title="广东特产"  href="http://www.lingshi.com/list/c116_o1.htm">广东</a></li>
+								<li><a title="湖南特产"  href="http://www.lingshi.com/list/c123_o1.htm">湖南</a></li>
+								<li><a title="四川特产"  href="http://www.lingshi.com/list/c118_o1.htm">四川</a></li>
+								<li><a title="浙江特产"  href="http://www.lingshi.com/list/c126_o1.htm">浙江</a></li>
+								<li><a title="福建特产"  href="http://www.lingshi.com/list/c121_o1.htm">福建</a></li>
+								<li><a title="云南特产"  href="http://www.lingshi.com/list/c120_o1.htm">云南</a></li>
+								<li><a title="海南特产"  href="http://www.lingshi.com/list/c119_o1.htm">海南</a></li>
+								<li><a title="山东特产"  href="http://www.lingshi.com/list/c129_o1.htm">山东</a></li>
+								<li><a title="天津特产"  href="http://www.lingshi.com/list/c139_o1.htm">天津</a></li>
+								<li><a title="重庆特产"  href="http://www.lingshi.com/list/c138_o1.htm">重庆</a></li>
+								<li><a title="内蒙古特产"  href="http://www.lingshi.com/list/c115_o1.htm">内蒙古</a></li>
+								<li><a title="河南特产"  href="http://www.lingshi.com/list/c125_o1.htm">河南</a></li>
+								<li><a title="湖北特产"  href="http://www.lingshi.com/list/c124_o1.htm">湖北</a></li>
+								<li><a title="江苏特产"  href="http://www.lingshi.com/list/c127_o1.htm">江苏</a></li>
+								<li><a title="河北特产"  href="http://www.lingshi.com/list/c134_o1.htm">河北</a></li>
+								<li><a title="安徽特产"  href="http://www.lingshi.com/list/c128_o1.htm">安徽</a></li>
+								<li><a title="新疆特产"  href="http://www.lingshi.com/list/c114_o1.htm">新疆</a></li>
+								<li><a title="广西特产"  href="http://www.lingshi.com/list/c113_o1.htm">广西</a></li>
+								<li><a title="西藏特产"  href="http://www.lingshi.com/list/c112_o1.htm">西藏</a></li>
+							</ul>
+								</div>
+			</div>
+		<div class="menu_list">
+								<h3><a href="http://www.lingshi.com/jinkou.htm" class="new_sort13"  title="进口零食">进口零食</a></h3>
+				<div class="i-list l13">
+						<ul class="fixed">
+								<li><a title="日本进口零食"  href="http://www.lingshi.com/list/c148_o1.htm">日本</a></li>
+								<li><a title="韩国进口零食"  href="http://www.lingshi.com/list/c149_o1.htm">韩国</a></li>
+								<li><a title="马来西亚进口零食"  href="http://www.lingshi.com/list/c151_o1.htm">马来西亚</a></li>
+								<li><a title="菲律宾进口零食"  href="http://www.lingshi.com/list/c150_o1.htm">菲律宾</a></li>
+								<li><a title="印尼进口零食"  href="http://www.lingshi.com/list/c143_o1.htm">印尼</a></li>
+								<li><a title="泰国进口零食"  href="http://www.lingshi.com/list/c144_o1.htm">泰国</a></li>
+								<li><a title="越南进口零食"  href="http://www.lingshi.com/list/c155_o1.htm">越南</a></li>
+								<li><a title="欧美进口零食"  href="http://www.lingshi.com/list/c145_o1.htm">欧美</a></li>
+								<li><a title="港澳台进口零食"  href="http://www.lingshi.com/list/c222_o1.htm">港澳台</a></li>
+								<li><a title="西班牙进口零食"  href="http://www.lingshi.com/list/c227_o1.htm">西班牙</a></li>
+								<li><a title="德国进口零食"  href="http://www.lingshi.com/list/c258_o1.htm">德国</a></li>
+								<li><a title="印度进口零食"  href="http://www.lingshi.com/list/c298_o1.htm">印度</a></li>
+								<li><a title="俄罗斯进口零食"  href="http://www.lingshi.com/list/c302_o1.htm">俄罗斯</a></li>
+								<li><a title="新加坡进口零食"  href="http://www.lingshi.com/list/c300_o1.htm">新加坡</a></li>
+								<li><a title="希腊进口零食"  href="http://www.lingshi.com/list/c301_o1.htm">希腊</a></li>
+							</ul>
+								</div>
+			</div>
+	</div>							</div>
+						<ul class="nav">
+				<li class="navBtn "><a href="http://www.lingshi.com/">首&nbsp;&nbsp;页</a></li>
+				<li class="navBtn "><a href="http://www.lingshi.com/seckill/">秒&nbsp;&nbsp;杀</a></li>
+				<li class="navBtn "><a href="http://www.lingshi.com/cuxiao.htm">促&nbsp;&nbsp;销</a></li>
+				<li class="navBtn "><a href="http://www.lingshi.com/news.php">新&nbsp;&nbsp;品</a></li>
+				<li class="navBtn "><a href="http://www.lingshi.com/jinkou.htm">进口零食</a></li>
+				<li class="navBtn"><a href="http://pifa.lingshi.com/">批发</a></li>
+			</ul>
+			<div class="sp_r">
+				<div class="scrollbox fixed">
+					<ul id="fontlist">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main">
+<div class="blank"></div>
+<div class="box_1">
+<h3><span>系统信息</span></h3>
+<div class="boxCenterList RelaArticle" align="center">
+  <div style="margin:20px auto;">
+  <p style="font-size: 14px; font-weight:bold; color: red;">您的购物车中没有商品！</p>
+    <div class="blank"></div>
+                <p><a href="http://www.lingshi.com/"><a href="http://www.lingshi.com/index.php">返回首页</a></a></p>
+            </div>
+</div>
+</div>
+<div class="blank5"></div>
+
+<div class="blank"></div>
+</div>
+<div class="clear"></div>
+<div class="footer mt20" id="menu_sp_hide">
+	<div class="service"></div>
+	<div class="line"></div>
+	<div class="question">
+				<dl>
+			<dt>新手指南</dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/12" target="_blank">购物流程</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/13" target="_blank">找回密码</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/14" target="_blank">会员注册</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/36" target="_blank">积分制度</a></dd>
+					</dl>
+				<dl>
+			<dt>付款说明</dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/9" target="_blank">商品发票</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/10" target="_blank">办理退款</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/11" target="_blank">支付方式</a></dd>
+					</dl>
+				<dl>
+			<dt>配送说明 </dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/16" target="_blank">配送运费</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/17" target="_blank">配送时间</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/850" target="_blank">配送方式&运费</a></dd>
+					</dl>
+				<dl>
+			<dt>客户服务 </dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/21" target="_blank">订单速查</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/22" target="_blank">代金券</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/23" target="_blank">常见问题</a></dd>
+					</dl>
+				<dl class="sp">
+			<dt class="app"></dt>
+		</dl>
+		<dl class="sp noBd">
+			<dt class="tel"></dt>
+		</dl>
+	</div>
+
+
+	<div class="clear"></div>
+
+	<div class="copyright">
+		
+	<div class="foot">
+		<ul>
+			<li><a target="_blank" href="http://art.lingshi.com/articles/articles/bangzhu" rel="nofollow">关于我们</a> | <a target="_blank" href="http://art.lingshi.com/articles/articles/bangzhu/4" rel="nofollow">联系我们</a> | <a href="http://www.lingshi.com/ditu.htm" target="_blank">网站地图</a> | <a href="http://www.lingshi.com/youqing.htm" target="_blank">友情链接</a> </li>
+		</ul>
+	</div>
+
+		<div class="copyright_img">
+			<a rel="nofollow" href="http://www.jsgsj.gov.cn:60103/businessCheck/verifKey.do?serial=3200009132048130471968a50a43001001-SAIC_SHOW_32000020170505094550350&signData=MEYCIQCojh/RCEQGyT2yQRVElhrVvacmMn/td+bGz9Hb20xiywIhALrfkW9FJua8H6efgMKjecM4lCdjRKM5jglQ0XPCEvdq" target="_blank"><img width="120" height="45" title="电子营业执照" alt="电子营业执照" src="Picture/dzyyzz.jpg"></a>
+			<a rel="nofollow" href="http://www.lingshi.com/templates/default/images/license/business.jpg" target="_blank"><img width="120" height="45" title="营业执照" alt="营业执照" src="Picture/businessico.png"></a>
+			<a rel="nofollow" href="http://www.lingshi.com/templates/default/images/license/food.jpg" target="_blank"><img width="120" height="45" title="食品经营-许可证" alt="食品经营-许可证" src="Picture/foodico.png"></a>
+			<a rel="nofollow" href="javascript:;" target="_blank"><img width="120" height="45" title="华南2C诚信同盟" alt="华南2C诚信同盟" src="Picture/scoba.jpg"></a>
+			
+			<a rel="nofollow" href="javascript:;" target="_blank"><img width="120" height="45" title="诚信电商" alt="诚信电商" src="Picture/cxds.jpg"></a>
+			
+            <a target="_blank" href="/weiquan/index.php" rel="nofollow"><img src="Picture/weiquan_2.jpg" width="120" height="45" alt="消费维权服务站" title="消费维权服务站" /></a>
+            <script id="jsgovicon" src="Scripts/govicon.js" type="text/javascript" charset="utf-8"></script>
+		</div>
+		<div class="divd">
+			<div style="margin:0 0 5px 0;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32048102000376"><img src="Picture/bei.png" style=" position:relative; left:-2px; top:5px;"><span>苏公网安备 32048102000376号</span></a><span>&nbsp;苏ICP备17016124号&nbsp;许可证：粤B2-20110008</span>
+			</div>
+			<span>Copyright &copy; 中国零食网 2009 - 2015,</span>
+			<span>All Rights Reserved</span><br/>
+			<span>凡本网注明“lingshi.com”的所有作品，包括文字、图片、程序等，版权均属于中国零食网所有，未经同意，不得用于商业用途。</span>
+		</div>
+		<div class="info">本站通用网址：零食网  中国零食网</div>
+		<div class="info">全国统一服务电话：400-600-0404</div>
+	</div>
+</div>
+
+
+<div class="r_bar">
+	<div class="left">
+		<ul>
+			<li class="cart_num" id="cart_num"><div><a>购物袋<span id="goodsCount">0</span></a></div></li>
+			<li class="kefu"><a id="kefu" href="javascript:;" onclick="openchat();" rel="nofollow">联系客服</a></li>
+			<li class="complaint"><a id="tousu" href="http://www.lingshi.com/weiquan/index.php" target="_blank">投诉</a></li>
+			<li class="view"><a id="objection" href="javascript:;">意见</a>
+			<form action="http://member.lingshi.com/" method="post" name="formMsg2" id="formMsg2">
+				<div class="view_wrap" id="view_wrap">
+				<div class="view_succeed" style="display:none"></div>
+				<div class="box5">
+					<p id="title"><b class="fl">主题：</b><a class="btn_close">X</a></p><br/>
+					<input class="view_input fl" name="msg_title" id="msg_title" type="text" placeholder="商品质量太差了" value=""  /><em class="fl">*</em>
+					<div class="clear"></div>
+					<p id="mt10" class="mt10"><b>内容：</b></p>
+					<p><textarea class="fl" name="msg_content" id="msg_content" placeholder="您还有哪些意见和建议告诉我们？" cols="" rows=""></textarea></p><em class="fl">*</em>
+					<p style="color:#e22b41;" id="content_notice"></p>
+					<input type="hidden" name="act" id="act" value="act_add_complaints2" />
+					<input id="sub" class="btn_view" type="submit" value="提交" />
+				</div>
+				</div></li>
+			</form>
+			<li class="qrc"><a>二维码</a><div class="qrc_img"></div></li>
+			<li class="top" id="gototop"><a href="#head">回到头部</a></li>
+		</ul>
+	</div>
+	<style type="text/css">.scrollBar{display:none;}</style>
+	<div class="cart" id="cart1">
+		<div class="goto_cart"><a href="http://pay.lingshi.com/">进入购物车&gt;&gt;</a></div>
+		<script type="text/javascript" src="Scripts/static_state.js"></script>
+	</div>
+</div>
+
+<script type="text/javascript">
+var adobj = {
+	dom: '#menu_sp_hide',
+	aid:368,
+	act:'prepend',
+	fn: function (ads) {
+		if (ads != undefined) {
+			var title = ads.imt_title != '' ? ads.imt_title : ads.img_alt != '' ? ads.img_alt : ads.ad_name;
+			var html = '<a class="app_full" href="'+ads.ad_link+'" target="_blank" style="margin:5px 0 20px;background:'+ads.bannerbg+' url('Images/+ads.ad_path+ads.ad_code+')  top center no-repeat;height:'+ads.ad_height+'px;" title="'+title+'">手机版客户端正式上线啦！</a>';
+			return html;
+			// $('#menu_sp_hide').prepend(html);
+		}
+		
+	}
+}
+create_ads(adobj,'http://www.lingshi.com/');
+
+
+$(function(){
+  $("#formMsg2").submit(function(e){
+    e.preventDefault();
+    msg_title = this.elements['msg_title'].value;
+    if (!submitCom_view(msg_title)) {
+      return false;
+    }
+    msg_content = this.elements['msg_content'].value;
+    if (!submitCom_view2(msg_content)) {
+      return false;
+    }
+    var url = this.action;
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'jsonp',
+      jsonp: 'callback',
+      data:{msg_title:$("#msg_title").val(), msg_content:$("#msg_content").val(),act:$("#act").val()},
+      success: function (json) {
+        if (json.error == 1) {
+        	$(".box5").hide();
+        	 $('.view_succeed').show();
+          	 setTimeout("$('.view_wrap').hide()",1000);
+          	 $('#objection').click(function(){
+          	 	$(".box5").show();
+          	 	$('.view_succeed').hide();
+          	 	$('#msg_title,#msg_content').val('');
+          	 })
+        } else {
+          $('#content_notice').html(json.content);
+          return false;
+        }
+      }
+    });
+  });
+});
+
+</script>
+<div style="display:none;"><script src="Scripts/stat.js" language="JavaScript"></script></div>
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "//hm.baidu.com/hm.js?acc1c6cb1acc353880abc3cd8764c366";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

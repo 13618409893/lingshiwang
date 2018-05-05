@@ -1,0 +1,61 @@
+1、这个项目是主要仿照“中国零食网”来制作的，其中所采用的框架是TP5，版本号可以在thinkphp\base.php当中查看，前台和后台的样式类文件和JS分别都放在了public\static文件下面的admin以及index这两个文件夹下。
+
+2、数据库方面的配置在application\database.php当中。虚拟主机请配置成public目录下,如"E:/wamp/bin/apache/apache2.4.9/htdocs/lingshi/public"
+
+3、目前已经完成的只有前后台的简单搭建以及后台的无限分类模块，无限分类还在完善当中....
+
+4、sql数据库部分也已经放到了这个项目目录当中
+
+lingshi  应用部署目录
+├─application           应用目录（可设置）
+│  ├─admin             后台目录（可更改）
+├  ├  ├─controller    控制器目录
+│  │  ├─model         模型目录
+│  │  ├─validate      验证器目录
+│  │  ├─view          视图目录
+│  │  ├─common.php            公共类文件
+│  │  ├─config.php            配置文件
+│  ├─index              前台目录(可更改)
+├  ├  ├─controller    控制器目录
+│  │  ├─model      	  模型目录
+│  │  ├─validate      控制器目录
+│  │  ├─view          视图目录
+│  │  ├─common.php            公共类文件
+│  │  ├─config.php            配置文件
+│  │  └─ ...            更多类库目录
+│  ├─command.php        命令行工具配置文件
+│  ├─common.php         应用公共（函数）文件
+│  ├─config.php         应用（公共）配置文件
+│  ├─database.php       数据库配置文件
+│  ├─tags.php           应用行为扩展定义文件
+│  └─route.php          路由配置文件
+├─extend                扩展类库目录（可定义）
+├─public                WEB 部署目录（对外访问目录）
+│  ├─static             静态资源存放目录(css,js,image)
+│  ├─index.php          应用入口文件
+│  ├─router.php         快速测试文件
+│  └─.htaccess          用于 apache 的重写
+├─runtime               应用的运行时目录（可写，可设置）
+├─vendor                第三方类库目录（Composer）
+├─thinkphp              框架系统目录
+│  ├─lang               语言包目录
+│  ├─library            框架核心类库目录
+│  │  ├─think           Think 类库包目录
+│  │  └─traits          系统 Traits 目录
+│  ├─tpl                系统模板目录
+│  ├─.htaccess          用于 apache 的重写
+│  ├─.travis.yml        CI 定义文件
+│  ├─base.php           基础定义文件
+│  ├─composer.json      composer 定义文件
+│  ├─console.php        控制台入口文件
+│  ├─convention.php     惯例配置文件
+│  ├─helper.php         助手函数文件（可选）
+│  ├─LICENSE.txt        授权说明文件
+│  ├─phpunit.xml        单元测试配置文件
+│  ├─README.md          README 文件
+│  └─start.php          框架引导文件
+├─build.php             自动生成定义文件（参考）
+├─composer.json         composer 定义文件
+├─LICENSE.txt           授权说明文件
+├─README.md             README 文件
+├─think                 命令行入口文件

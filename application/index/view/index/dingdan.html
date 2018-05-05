@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>查看购物车-中国零食网</title>
+<meta name="Keywords" content="零食网,休闲零食,零食团购,进口零食,品牌零食,肉类零食,海味零食,特色零食,特产零食,零食加盟,零食商城,健康零食,营养零食,减肥零食,办公室零食,零食批发,零食工坊,零食网购,美味零食,外国零食,日本零食,小零食,好吃零食" />
+<meta name="Description" content="中国零食网是国内购买食品质量安全保险的网上零食网站，坚持每日8款零食秒杀，在线销售各种零食品牌、特产零食、进口零食、休闲零食、办公室零食等，让您尽享美味安全食品" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+
+<link href="Css/reset.css" rel="stylesheet" type="text/css" />
+<link href="Css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="Css/cart.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="Scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+var domain = "http://www.lingshi.com/"; var Cart_Path = "http://pay.lingshi.com/"; var Customer_Path = "http://member.lingshi.com/";
+document.domain = 'lingshi.com';
+</script>
+<script type="text/javascript" src="Scripts/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="Scripts/common.js"></script>
+<script type="text/javascript" src="Scripts/shopping.js"></script>
+<script type="text/javascript" src="Scripts/kf.js"></script>
+<script type="text/javascript" src="Scripts/header_footer.js"></script>
+
+<!--[if lte IE 6]>
+<script  type="text/javascript"  src="Scripts/transparentpng.js" ></script>
+<script>
+  DD_belatedPNG.fix('.services a');
+</script>
+<![endif]-->
+</head>
+
+<body>
+<div id="head">
+	<div id="top" class="fixed">
+	<div id="topContent">
+		<ul id="topLeft">
+			<li>
+				<script type="text/javascript" src="Scripts/static_state.js"></script>
+			</li>
+		</ul>
+		<ul id="topRight">
+			<li id="weibo_text"><a href="javascript:void(0);" class="weibo" rel="nofollow">官方微博<!--[if gte IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<div class="weibo_wrap">
+					<a href="http://weibo.com/lingshi001" target="_blank" class="weibo_icon1" rel="nofollow" title="中国零食网 - 新浪微博"></a><a href="http://weibo.com/lingshi001" target="_blank" rel="nofollow">新浪微博</a>
+					<a href="http://e.t.qq.com/chinalingshi001" target="_blank" class="weibo_icon2" rel="nofollow" title="中国零食网 - 腾讯微博"></a><a href="http://e.t.qq.com/chinalingshi001" target="_blank" rel="nofollow">腾讯微博</a>
+				</div>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li>|</li>
+			<li><a href="http://art.lingshi.com/articles/articles/bangzhu" target="_blank" rel="nofollow">帮助中心</a></li>
+			<li>|</li>
+			<li><a href="http://www.lingshi.com/duihuan.htm" target="_blank" rel="nofollow">积分兑换</a></li>
+			<li>|</li>
+			<li><a href="http://www.lingshi.com/dingdan.htm" target="_blank" rel="nofollow">订单速查</a></li>
+			<li>|</li>
+			<li><a href="http://member.lingshi.com/?act=order_list" class="loginajax" target="_blank" rel="nofollow">我的订单</a></li>
+			<li>|</li>
+			<li><a href="http://www.lingshi.com/app.php" target="_blank" rel="nofollow">手机版客户端</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$('.loginajax').click(function(event) {
+	if(userid == ''){
+		loginRegShow('login','http://member.lingshi.com/?act=order_list');
+		return false;
+	}
+});
+</script>	<div class="clear"></div>
+</div>
+
+<div class="head_cart">
+	<div class="wrap"><a class="logo" href="http://www.lingshi.com/" title="中国零食网"></a><div class="status1"></div></div>
+</div>
+
+<div class="clear"></div>
+
+<div class="wrap">
+
+	<div class="clear"></div>
+	<div class="empty_wrap mt20">
+		<div class="empty">
+			<span class="icon"></span>
+			<p>您的购物车还是空的，<a onclick="loginRegShow('login','http://www.lingshi.com/')" href="javascript:void(0);">登录</a>后显示您之前加入的商品，或者直接去<a href="http://www.lingshi.com/">首页</a>购物吧！</p>
+		</div>
+	</div>
+
+		<script type="text/javascript" src="Scripts/lrscroll.js"></script>
+	<script type="text/javascript">
+		//热卖商品滚动
+		$(function () {
+			$("#botton-scroll").jCarouselLite({
+				btnNext: ".next",
+				btnPrev: ".prev",
+				visible:5,
+				scroll:2
+			});
+		});
+
+	</script>
+	<div id="con" class="mt50">
+		<ul id="tags">
+			<li class="selectTag"><a href="javascript:void(0)" onclick="selectTag('tagContent0',this)">热卖商品</a></li>
+			<li><a href="javascript:void(0)" onclick="selectTag('tagContent1',this)">收藏夹</a></li>
+			<li ><a href="javascript:void(0)" onclick="selectTag('tagContent2',this)">最近浏览</a></li>
+		</ul>
+		<div id="tagContent">
+			
+			<div id="tagContent0" class="tagContent selectTag fixed" style="display: block;">
+				<div id="featureContainer">
+					<div id="feature">
+						<div id="block">
+							<div id="botton-scroll">
+								<ul class="featureUL">
+																	<li></li>
+																</ul>
+							</div>
+						</div>
+						<a class="prev" href="javascript:void();">Previous</a>
+						<a class="next" href="javascript:void();">Next</a>
+					</div>
+				</div>
+			</div>
+			
+			<div id="tagContent1" class="tagContent2 fixed" style="display: none;">
+								<div style="padding: 10px 0 0 88px;line-height: 30px;font-size: 18px;color: #333;font-family: "\5fae\8f6f\96c5\9ed1","Microsoft YaHei", Arial, Helvetica, sans-serif, 宋体;">
+					您的收藏夹为空，请<a onclick="loginRegShow('login',window.location.href)" style="color:#e61952;" href="javascript:void(0);">登录</a>后查看您加入的商品
+
+				</div>
+							</div>
+			
+			<div id="tagContent2" class="tagContent2 fixed" style="display: none;">
+							</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		window["_BFD"] = window["_BFD"] || {};
+		_BFD.BFD_INFO = {
+			"items":[],
+			"user_id":""
+		};
+		_BFD.script = document.createElement("script");
+		_BFD.script.type = 'text/javascript';
+		_BFD.script.async = true;
+		_BFD.script.charset = 'utf-8';
+		_BFD.script.src = (('https:' == document.location.protocol?'https://ssl-static1':'http://static1')+'.baifendian.com/service/zhongguolingshi/lingshi_cart.js');
+		document.getElementsByTagName("head")[0].appendChild(_BFD.script);
+
+		_BFD.bfd_SC =  function(data,req_id,banner_id,page_type){
+			var gids = [];
+			for (var i = 0; i < data.length; i++) {
+				gids.push(data[i].iid);
+			};
+			gids = gids.join(",");
+			gid_str = encodeURIComponent(gids);
+
+			$.getJSON(domain + "static_state.php?act=bfd&callback=?&gids="+gid_str, function(json){
+				var li_htm = '';
+				var num = 5;
+				if (json.length < num) num = json.length;
+				for (var i = 0; i < num; i++) {
+					li_htm += '<li><a class="img" title="' +json[i].name+ '" target="_blank" href="' +json[i].url+ '"><img width="180" height="180" title="' +json[i].name+ '" alt="' +json[i].name+ '" src="' +json[i].img+ '"></a><p class="name">' +json[i].name+ '</p><p class="price"><em>￥</em>' +json[i].price+ '<del>￥'+json[i].market_price+'元</del></p></li>';
+				};
+				$('#con').append('<div class="need_more fixed"><div class="title">你可能还需要：</div><a href="http://www.baifendian.com/" target="_blank" class="baifendian"></a><ul class="featureUL">'+ li_htm +'</ul></div>');
+			});
+			_BFD.showBind(data,req_id,banner_id,page_type)//此处是推荐返回时百分点绑定事件的方法，请不要修改。
+		}
+					var user_name_empty = "请输入您的用户名！<br/>";
+					var email_address_empty = "请输入您的电子邮件地址！<br/>";
+					var email_address_error = "您输入的电子邮件地址格式不正确！<br/>";
+					var new_password_empty = "请输入您的新密码！";
+					var confirm_password_empty = "请输入您的确认密码！";
+					var both_password_error = "您两次输入的密码不一致！";
+					var show_div_text = "修改数量成功！<br/>此商品总计：<font color=#bf4d59>%s</font>";
+					var show_div_exit = "X";
+					var show_div_collect = "收藏成功";
+				function selectTag(showContent,selfObj){
+			// 操作标签
+			var tag = document.getElementById("tags").getElementsByTagName("li");
+			var taglength = tag.length;
+			for(i=0; i<taglength; i++){
+				tag[i].className = "";
+			}
+			selfObj.parentNode.className = "selectTag";
+			// 操作内容
+			for(i=0; j=document.getElementById("tagContent"+i); i++){
+				j.style.display = "none";
+			}
+			document.getElementById(showContent).style.display = "block";
+		}
+	</script>
+
+	
+
+</div>
+
+<div class="clear"></div>
+<div class="footer mt20" id="menu_sp_hide">
+	<div class="service"></div>
+	<div class="line"></div>
+	<div class="question">
+				<dl>
+			<dt>新手指南</dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/12" target="_blank">购物流程</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/13" target="_blank">找回密码</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/14" target="_blank">会员注册</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/36" target="_blank">积分制度</a></dd>
+					</dl>
+				<dl>
+			<dt>付款说明</dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/9" target="_blank">商品发票</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/10" target="_blank">办理退款</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/11" target="_blank">支付方式</a></dd>
+					</dl>
+				<dl>
+			<dt>配送说明 </dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/16" target="_blank">配送运费</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/17" target="_blank">配送时间</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/850" target="_blank">配送方式&运费</a></dd>
+					</dl>
+				<dl>
+			<dt>客户服务 </dt>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/21" target="_blank">订单速查</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/22" target="_blank">代金券</a></dd>
+						<dd><a rel="nofollow" href="http://art.lingshi.com/articles/articles/bangzhu/23" target="_blank">常见问题</a></dd>
+					</dl>
+				<dl class="sp">
+			<dt class="app"></dt>
+		</dl>
+		<dl class="sp noBd">
+			<dt class="tel"></dt>
+		</dl>
+	</div>
+
+
+	<div class="clear"></div>
+
+	<div class="copyright">
+		
+	<div class="foot">
+		<ul>
+			<li><a target="_blank" href="http://art.lingshi.com/articles/articles/bangzhu" rel="nofollow">关于我们</a> | <a target="_blank" href="http://art.lingshi.com/articles/articles/bangzhu/4" rel="nofollow">联系我们</a> | <a href="http://www.lingshi.com/ditu.htm" target="_blank">网站地图</a> | <a href="http://www.lingshi.com/youqing.htm" target="_blank">友情链接</a> </li>
+		</ul>
+	</div>
+
+		<div class="copyright_img">
+			<a rel="nofollow" href="http://www.jsgsj.gov.cn:60103/businessCheck/verifKey.do?serial=3200009132048130471968a50a43001001-SAIC_SHOW_32000020170505094550350&signData=MEYCIQCojh/RCEQGyT2yQRVElhrVvacmMn/td+bGz9Hb20xiywIhALrfkW9FJua8H6efgMKjecM4lCdjRKM5jglQ0XPCEvdq" target="_blank"><img width="120" height="45" title="电子营业执照" alt="电子营业执照" src="Picture/dzyyzz.jpg"></a>
+			<a rel="nofollow" href="http://www.lingshi.com/templates/default/images/license/business.jpg" target="_blank"><img width="120" height="45" title="营业执照" alt="营业执照" src="Picture/businessico.png"></a>
+			<a rel="nofollow" href="http://www.lingshi.com/templates/default/images/license/food.jpg" target="_blank"><img width="120" height="45" title="食品经营-许可证" alt="食品经营-许可证" src="Picture/foodico.png"></a>
+			<a rel="nofollow" href="javascript:;" target="_blank"><img width="120" height="45" title="华南2C诚信同盟" alt="华南2C诚信同盟" src="Picture/scoba.jpg"></a>
+			
+			<a rel="nofollow" href="javascript:;" target="_blank"><img width="120" height="45" title="诚信电商" alt="诚信电商" src="Picture/cxds.jpg"></a>
+			
+            <a target="_blank" href="/weiquan/index.php" rel="nofollow"><img src="Picture/weiquan_2.jpg" width="120" height="45" alt="消费维权服务站" title="消费维权服务站" /></a>
+            <script id="jsgovicon" src="Scripts/govicon.js" type="text/javascript" charset="utf-8"></script>
+		</div>
+		<div class="divd">
+			<div style="margin:0 0 5px 0;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32048102000376"><img src="Picture/bei.png" style=" position:relative; left:-2px; top:5px;"><span>苏公网安备 32048102000376号</span></a><span>&nbsp;苏ICP备17016124号&nbsp;许可证：粤B2-20110008</span>
+			</div>
+			<span>Copyright &copy; 中国零食网 2009 - 2015,</span>
+			<span>All Rights Reserved</span><br/>
+			<span>凡本网注明“lingshi.com”的所有作品，包括文字、图片、程序等，版权均属于中国零食网所有，未经同意，不得用于商业用途。</span>
+		</div>
+		<div class="info">本站通用网址：零食网  中国零食网</div>
+		<div class="info">全国统一服务电话：400-600-0404</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+var adobj = {
+	dom: '#menu_sp_hide',
+	aid:368,
+	act:'prepend',
+	fn: function (ads) {
+		if (ads != undefined) {
+			var title = ads.imt_title != '' ? ads.imt_title : ads.img_alt != '' ? ads.img_alt : ads.ad_name;
+			var html = '<a class="app_full" href="'+ads.ad_link+'" target="_blank" style="margin:5px 0 20px;background:'+ads.bannerbg+' url('Images/+ads.ad_path+ads.ad_code+')  top center no-repeat;height:'+ads.ad_height+'px;" title="'+title+'">手机版客户端正式上线啦！</a>';
+			return html;
+			// $('#menu_sp_hide').prepend(html);
+		}
+		
+	}
+}
+create_ads(adobj,'http://www.lingshi.com/');
+
+
+$(function(){
+  $("#formMsg2").submit(function(e){
+    e.preventDefault();
+    msg_title = this.elements['msg_title'].value;
+    if (!submitCom_view(msg_title)) {
+      return false;
+    }
+    msg_content = this.elements['msg_content'].value;
+    if (!submitCom_view2(msg_content)) {
+      return false;
+    }
+    var url = this.action;
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'jsonp',
+      jsonp: 'callback',
+      data:{msg_title:$("#msg_title").val(), msg_content:$("#msg_content").val(),act:$("#act").val()},
+      success: function (json) {
+        if (json.error == 1) {
+        	$(".box5").hide();
+        	 $('.view_succeed').show();
+          	 setTimeout("$('.view_wrap').hide()",1000);
+          	 $('#objection').click(function(){
+          	 	$(".box5").show();
+          	 	$('.view_succeed').hide();
+          	 	$('#msg_title,#msg_content').val('');
+          	 })
+        } else {
+          $('#content_notice').html(json.content);
+          return false;
+        }
+      }
+    });
+  });
+});
+
+</script>
+<div style="display:none;"><script src="Scripts/stat.js" language="JavaScript"></script></div>
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "//hm.baidu.com/hm.js?acc1c6cb1acc353880abc3cd8764c366";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<div class="services"><a href="javascript:;" onclick="openchat();" rel="nofollow">联系客服</a></div>
+<script type="text/javascript">
+var process_request = "正在处理您的请求...";
+var username_empty = "- 用户名不能为空。";
+var username_shorter = "- 长度不能少于3个字符";
+var username_invalid = "- 用户名只能是由字母数字以及下划线组成。";
+var password_empty = "- 登录密码不能为空。";
+var password_shorter = "- 密码不能少于6个字符";
+var confirm_password_invalid = "- 两次输入密码不一致";
+var email_empty = "- Email为空";
+var email_invalid = "- Email不是合法的地址";
+var agreement = "- 您没有接受协议";
+var msn_invalid = "- msn地址不是一个有效的邮件地址";
+var qq_invalid = "- QQ号码不是一个有效的号码";
+var home_phone_invalid = "- 家庭电话不是一个有效号码";
+var office_phone_invalid = "- 办公电话不是一个有效号码";
+var mobile_phone_invalid = "- 手机号码不是一个有效号码";
+var msg_un_blank = "- 用户名不能为空";
+var msg_un_length = "* 用户名最长不得超过7个汉字";
+var msg_un_format = "* 用户名含有非法字符";
+var msg_un_registered = "* 用户名已经存在,请重新输入";
+var msg_can_rg = "* 可以注册";
+var msg_email_blank = "* 邮件地址不能为空";
+var msg_email_registered = "* 邮箱已存在,请重新输入";
+var msg_email_format = "* 邮件地址不合法";
+var msg_blank = "不能为空";
+var no_select_question = "- 您没有完成密码提示问题的操作";
+var passwd_balnk = "- 密码中不能包含空格";
+var invite_invalid = "- 邀请人不存在";
+var username_exist = "用户名 %s 已经存在";
+var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
+var btn_buy = "购买";
+var is_cancel = "取消";
+var select_spe = "请选择商品属性";
+</script>
+</body>
+</html>
