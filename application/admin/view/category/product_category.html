@@ -1,4 +1,3 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:106:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\goods\product_category.html";i:1525680340;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -32,7 +31,7 @@
 <table class="table">
 	<tr>
 		<td width="200" class="va-t"><ul id="treeDemo" class="ztree"></ul></td>
-		<td class="va-t"><IFRAME ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="<?php echo url('product_category_add'); ?>"></IFRAME></td>
+		<td class="va-t"><IFRAME ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="{:url('product_category_add')}"></IFRAME></td>
 	</tr>
 </table>
 <script type="text/javascript" src="__ADMIN__/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -59,7 +58,7 @@ var zNodes;
 
 	$.ajax({
              //
-             url:"<?php echo url('product_category_ajax'); ?>",
+             url:"{:url('product_category_ajax')}",
              type:'get',
 
              dataType:'json',
@@ -98,11 +97,11 @@ var setting = {
 	             success:function(data){
 	           		if(data==1){
 	           			alert("删除成功");
-	           			parent.location.href="<?php echo url('product_category'); ?>";
+	           			parent.location.href="{:url('product_category')}";
 
 	           		}else{
 	           			alert(data);
-	           			parent.location.href="<?php echo url('product_category'); ?>";
+	           			parent.location.href="{:url('product_category')}";
 	           		}
 	             }
 	            })

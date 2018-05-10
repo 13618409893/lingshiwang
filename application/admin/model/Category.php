@@ -1,18 +1,19 @@
 <?php
 /**
  * @Author: anchen
- * @Date:   2018-05-04 13:52:58
+ * @Date:   2018-05-07 17:27:43
  * @Last Modified by:   anchen
- * @Last Modified time: 2018-05-07 19:31:14
+ * @Last Modified time: 2018-05-07 17:28:52
  */
 namespace app\admin\model;
 use think\Model;
 use think\db;
 
-class Goods extends Model
+class Category extends Model
 {
+
     //连接的表名
-    protected $table = 'chihuo_goods';
+    protected $table = 'chihuo_category';
 
     //主键名
     protected $pk = 'id';

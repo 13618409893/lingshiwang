@@ -45,3 +45,26 @@ INSERT INTO `chihuo_category` VALUES ('11', '去', '0', '0', '1');
 INSERT INTO `chihuo_category` VALUES ('12', '我', '0', '0,12', '1');
 INSERT INTO `chihuo_category` VALUES ('13', '额', '1', '0,1,13', '1');
 INSERT INTO `chihuo_category` VALUES ('14', '人', '1', '0,1,14', '2');
+
+
+DROP TABLE IF EXISTS `chihuo_goods`;
+CREATE TABLE `chihuo_goods` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品自增id',
+  `goodsname` varchar(255) DEFAULT NULL COMMENT '商品的名字',
+  `tid` int(11) DEFAULT NULL COMMENT '分类id',
+  `tpid` int(255) DEFAULT NULL COMMENT '分类路径',
+  `unit` char(255) DEFAULT NULL COMMENT '商品的单位',
+  `attributes` enum('7','6','5','4','3','2','1') DEFAULT NULL COMMENT '商品的属性,1、推荐 2、新上 3、热卖 4、促销 5、包邮 6、限时卖 7、不参与会员折扣',
+  `imagepath` varchar(255) DEFAULT NULL COMMENT '商品图片id',
+  `number` int(11) DEFAULT NULL COMMENT '商品编号',
+  `curprice` int(11) DEFAULT NULL COMMENT '现价',
+  `oriprice` int(11) DEFAULT NULL COMMENT '市场价',
+  `inventory` int(255) DEFAULT NULL COMMENT '库存量',
+  `restrict` int(255) DEFAULT NULL COMMENT '限制购买量',
+  `already` int(255) DEFAULT NULL COMMENT '已经购买量',
+  `freight` int(255) DEFAULT NULL COMMENT '运费',
+  `status` enum('1','0') DEFAULT NULL COMMENT '是否上架,0为上架,1为下架,默认0上架',
+  `reorder` int(255) DEFAULT NULL,
+  `text` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;

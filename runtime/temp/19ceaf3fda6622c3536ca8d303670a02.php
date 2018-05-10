@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:110:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\goods\product_category_add.html";i:1525680084;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:113:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\category\product_category_add.html";i:1525680084;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>

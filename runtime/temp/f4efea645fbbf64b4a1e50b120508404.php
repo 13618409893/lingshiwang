@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:101:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\goods\product_add.html";i:1525756121;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -37,7 +38,7 @@
 <br \>
 
 <div class="page-container">
-	<form action="{:url('Goods/product_add_goods')}" method="post" class="form form-horizontal" id="form-article-add">
+	<form action="<?php echo url('Goods/product_add_goods'); ?>" method="post" class="form form-horizontal" id="form-article-add">
 		<div class="form-group">
 			<label  for="inputEmail3" class="col-sm-2 control-label"><span class="c-red">*</span>商品标题：</label>
 			<div class="col-xs-8 col-sm-9">
@@ -50,11 +51,11 @@
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="form-control" size="1" name="tid">
 		            <option value="0" selected>顶级分类</option>
-		            {foreach $data  as $vo}
-		            <option value="{$vo.id},{$vo.parent_id}" >{$vo.level}级分类&nbsp;{$vo.name}</option>
+		            <?php foreach($data  as $vo): ?>
+		            <option value="<?php echo $vo['id']; ?>,<?php echo $vo['parent_id']; ?>" ><?php echo $vo['level']; ?>级分类&nbsp;<?php echo $vo['name']; ?></option>
 
 
-		            {/foreach}
+		            <?php endforeach; ?>
 
 
 		          </select>
@@ -289,7 +290,7 @@ $("#close").click(function(){
 
 function deleteImage(id){
 	$.ajax({
-	   url:'{:url("Goods/product_del_images")}',
+	   url:'<?php echo url("Goods/product_del_images"); ?>',
 	   type:'get',
 	   data:{id:id},
 	   dataType:'json',
@@ -313,7 +314,7 @@ function deleteImage(id){
 }
 
 //图片上传
-initFileInput("file-0", "{:url('product_add_images')}");
+initFileInput("file-0", "<?php echo url('product_add_images'); ?>");
 
 
 //初始化fileinput控件（第一次初始化）

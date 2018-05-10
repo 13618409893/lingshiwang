@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\goods\product_list.html";i:1525754513;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -43,7 +44,7 @@
 			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 		</div>
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius"  href="{:url('goods/product_add')}"><i class="Hui-iconfont">&#xe600;</i> 添加商品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius"  href="<?php echo url('goods/product_add'); ?>"><i class="Hui-iconfont">&#xe600;</i> 添加商品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 		<div class="mt-20">
 			<table class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
@@ -62,38 +63,25 @@
 				</thead>
 				<tbody>
 
-				 {foreach $data  as $vo}
+				 <?php foreach($data  as $vo): ?>
 					<tr class="text-c va-m">
 						<td><input name="" type="checkbox" value=""></td>
-						<td>{$vo.id}</td>
-						<td>{$vo.goodsname}</td>
-						<td class="text-l">{$vo.goodsname}</td>
-						<td class="text-l">{$vo.inventory}</td>
+						<td><?php echo $vo['id']; ?></td>
+						<td><?php echo $vo['goodsname']; ?></td>
+						<td class="text-l"><?php echo $vo['goodsname']; ?></td>
+						<td class="text-l"><?php echo $vo['inventory']; ?></td>
 						<td class="text-l">
 
-						{switch name="$vo.attributes" }
-
-						    {case value="1" }推荐{/case}
-
-						    {case value="2"}新上{/case}
-
-						    {case value="3"}热卖{/case}
-
-						    {case value="4"}促销{/case}
-						    {case value="5"}包邮{/case}
-						    {case value="6"}限时卖{/case}
-						    {case value="7"}不参与会员折扣{/case}
-
-						{/switch}
+						<?php switch($vo['attributes']): case "1": ?>推荐<?php break; case "2": ?>新上<?php break; case "3": ?>热卖<?php break; case "4": ?>促销<?php break; case "5": ?>包邮<?php break; case "6": ?>限时卖<?php break; case "7": ?>不参与会员折扣<?php break; endswitch; ?>
 
 
 
 						</td>
 						<td class="td-status"><span class="label label-success radius">已发布</span></td>
-						<td class="td-manage"><a style="text-decoration:none" onClick="product_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5"  href="{:url('product_edit',array('id'=>$vo['id'],'tid'=>$vo['tid']))}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'{$vo['id']}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						<td class="td-manage"><a style="text-decoration:none" onClick="product_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5"  href="<?php echo url('product_edit',array('id'=>$vo['id'],'tid'=>$vo['tid'])); ?>" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'<?php echo $vo['id']; ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>
 
-				 {/foreach}
+				 <?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>
@@ -111,7 +99,7 @@ var zNodes;
 
 	$.ajax({
              //
-             url:"{:url('category/product_category_ajax')}",
+             url:"<?php echo url('category/product_category_ajax'); ?>",
              type:'get',
 
              dataType:'json',
@@ -142,7 +130,7 @@ var setting = {
 			if(treeNode.parent_id !=""){
 				var id=treeNode.id;
 
-				location.href="{:url('product_list')}?id="+id+"";
+				location.href="<?php echo url('product_list'); ?>?id="+id+"";
 
 			}
 
@@ -260,7 +248,7 @@ function product_del(obj,id){
 		$.ajax({
 			   //脚本地址
 
-			   url:"{:url('Goods/product_edit_delete')}",
+			   url:"<?php echo url('Goods/product_edit_delete'); ?>",
 			   type:'get',
 			   data:{id:id},
 			   dataType:'json',

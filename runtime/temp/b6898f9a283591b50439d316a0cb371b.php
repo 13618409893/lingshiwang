@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:95:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\index\index.html";i:1525411258;s:94:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\public\top.html";i:1525409693;s:95:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\public\left.html";i:1525411610;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:95:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\index\index.html";i:1525411258;s:94:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\public\top.html";i:1525409693;s:95:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\public\left.html";i:1525691225;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -99,8 +99,8 @@
             <dd>
                 <ul>
                     <li><a data-href="product-brand.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
-                    <li><a data-href="<?php echo url('goods/product_category'); ?>" data-title="商品分类" href="javascript:void(0)">商品分类</a></li>
-                    <li><a data-href="product_list.html" data-title="产品管理" href="<?php echo url('product_list'); ?>">产品管理</a></li>
+                    <li><a data-href="<?php echo url('category/product_category'); ?>" data-title="商品分类" href="javascript:void(0)">商品分类</a></li>
+                    <li><a data-href="<?php echo url('goods/product_list'); ?>" data-title="商品管理" href="javascript:void(0)">商品管理</a></li>
             </ul>
         </dd>
     </dl>
