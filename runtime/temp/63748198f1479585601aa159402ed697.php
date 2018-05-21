@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\goods\product_list.html";i:1525754513;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"E:\wamp\bin\apache\apache2.4.9\htdocs\lingshi\public/../application/admin\view\goods\product_list.html";i:1526722350;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -53,6 +53,7 @@
 						<th width="40">ID</th>
 
 						<th width="100">产品名称</th>
+						<th width="130">描述</th>
 						<th width="60">展示价格</th>
 						<th width="60">库存量</th>
 
@@ -68,7 +69,8 @@
 						<td><input name="" type="checkbox" value=""></td>
 						<td><?php echo $vo['id']; ?></td>
 						<td><?php echo $vo['goodsname']; ?></td>
-						<td class="text-l"><?php echo $vo['goodsname']; ?></td>
+						<td class="text-l"><?php echo $vo['text']; ?></td>
+						<td class="text-l"><?php echo $vo['oriprice']; ?></td>
 						<td class="text-l"><?php echo $vo['inventory']; ?></td>
 						<td class="text-l">
 

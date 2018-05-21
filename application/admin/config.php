@@ -22,7 +22,7 @@ return [
     '__PUBLIC__'=>'/public/',
     '__ROOT__' => '/',
     '__ADMIN__' => '/static/admin',
-
+    '__JUMP__' => '/static/tiaozhuan',
     ],
 
 

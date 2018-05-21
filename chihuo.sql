@@ -68,3 +68,12 @@ CREATE TABLE `chihuo_goods` (
   `text` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `goods_files`;
+CREATE TABLE `goods_files` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `filepath` varchar(255) DEFAULT NULL COMMENT '文件路径',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8;

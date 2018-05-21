@@ -3,7 +3,7 @@
  * @Author: anchen
  * @Date:   2018-05-04 07:04:31
  * @Last Modified by:   anchen
- * @Last Modified time: 2018-05-04 12:29:12
+ * @Last Modified time: 2018-05-20 19:34:53
  */
 namespace app\admin\controller;
 use think\Controller;
@@ -11,7 +11,6 @@ use think\Controller;
 class Index extends Controller
 {
     public function index(){
-
         return $this->fetch();
     }
 
